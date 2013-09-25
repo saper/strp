@@ -4,9 +4,13 @@
 int
 main(int argc, char **argv)
 {
-	char *TIME = "1899:12:31";
 	struct tm tp;
-    char *out;
-    out = strptime(TIME, "%Y:%m:%d", &tp);
+	char *out;
+	if (argc != 3) {
+		fprintf(stderr, "Usage: strp date format\n");
+		return 255;
+	}
+	out = strptime(argv[1], argv[2], &tp);
 	fprintf(stderr, "%p\n", out);
+	return 0;
 }
