@@ -10,7 +10,12 @@
 .Ar date
 .Ar format
 .Sh DESCRIPTION
-This calls strptime(3) and displays its return value as a pointer.
+This calls strptime(3) and displays its return value as a pointer
+to the standard error. 
+
+Also output contents of (struct tm) tm_year, tm_mon, tm_mday and
+tm_yday fields to the standard output. 
+Those fields are initialized to 5555 to detect changes made by strptime(3).
 .Sh EXIT STATUS
 .Ex -std
 .Sh SEE ALSO
